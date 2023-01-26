@@ -1,3 +1,6 @@
+using TechRecruitmentJson.Service.Interfaces;
+using TechRecruitmentJson.Service;
+
 namespace TechRecruitmentJson
 {
     public class program
@@ -14,6 +17,8 @@ namespace TechRecruitmentJson
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            //Dependancy Injection
+            builder.Services.AddTransient<IJsonValidatorService, JsonValidatorService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
